@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+
+if (
+  fs.existsSync('data')
+) {
+  console.error('data directory already exists');
+  process.exit(1);
+}
+
+fs.mkdirSync('data');
+fs.writeFileSync('data/data.json', '[]');
+fs.writeFileSync('data/last-id', '0');
+
